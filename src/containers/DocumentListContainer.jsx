@@ -15,7 +15,7 @@ function listPredicate(query) {
 
 
 export default function DocumentListContainer({state, dispatch, children, id}) {
-  const query = state.view.documentList.query
+  const query = state.view.documentList
   const props = {
     id,
     query,
@@ -24,6 +24,8 @@ export default function DocumentListContainer({state, dispatch, children, id}) {
       .filter(listPredicate(query)),
     onChangeQuery: compose(dispatch, actions.updateQuery),
   }
+
+  console.log(query)
 
   return <OneOrTwoColumnLayout
     left={<DocumentList {...props} />}
