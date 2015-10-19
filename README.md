@@ -33,17 +33,17 @@ Presto, you've got a ready-to-customise application!
 
 ## Getting Started
 
-Put your name on it:
+#### Put your name on it
 
 - Update name, desription and author in `package.json`
 - Update app title in `src/index.html`
 - Restart the dev server (make sure to do this after any changes to `src/index.html`)
 
-Make sure your editor is happy
+#### Make sure your editor is happy
 
 - Setup ES6 syntax highlighting on extensions `.js` and `.jsx` (see [babel-sublime](https://github.com/babel/babel-sublime))
 
-Start building!
+#### Start building
 
 - Add a route to `src/constants/ROUTES.js`
 - Add a nav menu item for your route in `src/components/ApplicationLayout.jsx`
@@ -55,7 +55,7 @@ Start building!
 - Bask in the glory of your creation
 - Don't forget to commit your changes and push to Bitbucket or GitHub!
 
-Show your friends
+#### Show your friends
 
 - Run `gulp dist` to output a web-ready build of your app to `dist`
 
