@@ -14,8 +14,6 @@ const createStoreWithMiddleware = applyMiddleware(
 const store = createStoreWithMiddleware(rootReducer)
 
 
-// TODO: check that redux doesn't check for doubling up of subscribe
-// handlers itself
 let acting = false
 store.subscribe(function() {
   // Ensure that any action dispatched by actors do not result in a new
