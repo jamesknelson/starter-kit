@@ -40,13 +40,15 @@ export function submitChanges(id, data) {
     }
   }
   else {
+    const newId = id == 'new' ? uuid() : id
     return [
       cancelChanges(id),
       {
         type: T.DOCUMENT_DATA.UPDATE,
-        id: id == 'new' ? uuid() : id,
+        id: newId,
         data,
-      }
+      },
+      navigation.start('documentEdit', {id: newId}),
     ]
   }
 }

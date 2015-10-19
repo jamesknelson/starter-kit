@@ -17,7 +17,7 @@ export default setPropTypes({
   documents: PropTypes.array.isRequired,
   onChangeQuery: PropTypes.func.isRequired,
 })(function DocumentList({
-  id,
+  id: activeId,
   query,
   documents,
   onChangeQuery,
@@ -26,6 +26,7 @@ export default setPropTypes({
     <div>
       <header className='app-DocumentList-header'>
         <input
+          className='app-DocumentList-query'
           type="text"
           placeholder="Search..."
           value={query}
@@ -34,7 +35,13 @@ export default setPropTypes({
       </header>
       <ul className='app-DocumentList-list'>
         {documents.map(([id, data]) =>
-          <li key={id} className='app-DocumentList-document-item'>
+          <li
+            key={id}
+            className={`
+              app-DocumentList-document-item
+              ${activeId == id ? 'app-DocumentList-document-item-active' : ''}
+            `}
+          >
             <Link
               className='app-DocumentList-document-link'
               name='documentEdit'
@@ -44,7 +51,12 @@ export default setPropTypes({
             </Link>
           </li>
         )}
-        <li className='app-DocumentList-add-item'>
+        <li 
+          className={`
+            app-DocumentList-add-item
+            ${activeId == 'new' ? 'app-DocumentList-add-item-active' : ''}
+          `}
+        >
           <Link
             className='app-DocumentList-add-link'
             name='documentEdit'

@@ -22,5 +22,5 @@ export default function DocumentContainer({state, dispatch, id}) {
       : null,
   }
 
-  return !props.data ? "Not Found" : <DocumentForm {...props} />
+  return !data ? <div>Not Found</div> : <DocumentForm {...props} />
 }
