@@ -34,7 +34,7 @@ export default setPropTypes({
       </header>
       <ul className='app-DocumentList-list'>
         {documents.map(([id, data]) =>
-          <li className='app-DocumentList-document-item'>
+          <li key={id} className='app-DocumentList-document-item'>
             <Link
               className='app-DocumentList-document-link'
               name='documentEdit'

@@ -41,14 +41,14 @@ export default setPropTypes({
         className='app-DocumentForm-title'
         placeholder='Title'
         onChange={updater(data, 'title', onUpdate)}
-        value={data.title}
+        value={data.title || ''}
         autoFocus
       />
       <textarea
         type='text'
         className='app-DocumentForm-content'
         onChange={updater(data, 'content', onUpdate)}
-        value={data.content}
+        value={data.content || ''}
       />
       <footer className='app-DocumentForm-buttons'>
         <button
