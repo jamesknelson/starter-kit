@@ -30,12 +30,19 @@ export default setPropTypes({
   onSubmit,
   onCancel,
 }) {
+  const errorList = errors && Object.values(errors).map(error =>
+    <li className='app-DocumentForm-error'>{error}</li>
+  )
+
   return (
     <form
       onSubmit={preventDefault(onSubmit)}
       className='app-DocumentForm'
       noValidate={true}
     >
+      <ul className='app-DocumentForm-errors'>
+        {errorList}
+      </ul>
       <input
         type='text'
         className='app-DocumentForm-title'
