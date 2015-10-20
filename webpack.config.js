@@ -8,7 +8,9 @@ export default (DEBUG, PATH, PORT=3000) => ({
     `webpack-dev-server/client?http://localhost:${PORT}`,
   ] : []).concat([
     './src/main.less',
-    './src/main'
+    'babel-core/external-helpers',
+    'babel-core/polyfill',
+    './src/main',
   ]),
 
   output: {
@@ -33,7 +35,7 @@ export default (DEBUG, PATH, PORT=3000) => ({
         loader: "babel-loader",
         query: {
           stage: 0,
-          optional: ['runtime'],
+          externalHelpers: true,
         }},
 
       // Load styles
