@@ -8,7 +8,6 @@ export default (DEBUG, PATH, PORT=3000) => ({
     `webpack-dev-server/client?http://localhost:${PORT}`,
   ] : []).concat([
     './src/main.less',
-    'babel/polyfill',
     './src/main'
   ]),
 
@@ -32,7 +31,10 @@ export default (DEBUG, PATH, PORT=3000) => ({
           path.resolve(__dirname, "src"),
         ],
         loader: "babel-loader",
-        query: {stage: 0}},
+        query: {
+          stage: 0,
+          optional: ['runtime'],
+        }},
 
       // Load styles
       { test: /\.less$/,
