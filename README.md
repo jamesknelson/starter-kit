@@ -51,7 +51,7 @@ Presto, you've got a ready-to-customise application!
 - Add reducers and actions for your component's view model in `src/actions` and `src/reducers/view`
 - Add any data models which your component reqiures in `src/reducers/data`
 - Add a container to map your store's `state` and `dispatch` to component props in `src/containers`
-- Configure your route in `src/containers/ApplicationContainer.jsx`
+- Configure your route in `src/Application.jsx`
 - Bask in the glory of your creation
 - Don't forget to commit your changes and push to Bitbucket or GitHub!
 
@@ -95,7 +95,7 @@ store.subscribe(function() {
 The actor is defined in `src/actors/index.js`. By default, it runs the following sequence:
 
 - **redirector** - dispatch a navigation action if the current location should redirect to another location
-- **renderer** - renders the current UI with React
+- **renderer** - renders your <Application> component with React
 
 ### Model
 
@@ -137,6 +137,7 @@ Other directories:
 
 Main application files:
 
+- `src/Application.jsx` - Your application's top-level React component
 - `src/index.html` - The single page for your single page application
 - `src/main.js` - The application's entry point
 - `src/main.less` - Global styles for your application
