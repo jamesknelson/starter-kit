@@ -6,7 +6,7 @@ import DocumentListContainer from './DocumentListContainer'
 
 export default function ApplicationContainer(props) {
   return (
-    <ApplicationLayout location={props.state.navigation.location}>
+    <ApplicationLayout locationName={props.state.navigation.location.name}>
       {selectChildContainer(props)}
     </ApplicationLayout>
   )

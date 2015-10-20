@@ -25,8 +25,6 @@ export default function DocumentListContainer({state, dispatch, children, id}) {
     onChangeQuery: compose(dispatch, actions.updateQuery),
   }
 
-  console.log(query)
-
   return <OneOrTwoColumnLayout
     left={<DocumentList {...props} />}
     right={children}
