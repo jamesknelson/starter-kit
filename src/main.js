@@ -22,7 +22,7 @@ store.subscribe(function() {
     acting = true
 
     for (let actor of actors) {
-      actor(store.getState(), store.dispatch.bind(store))
+      actor(store.getState(), store.dispatch)
     }
 
     acting = false
