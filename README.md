@@ -17,7 +17,7 @@ npm run open # (from a different console window, otherwise open localhost:3000)
 
 Presto, you've got a ready-to-customise application!
 
-![Unicorn Standard Boilerplate](http://unicornstandard.com/files/boilerplate.png)
+![Unicorn Standard Boilerplate](http://unicornstandard.com/files/boilerplate.png?1)
 
 ## Why use Unicorn Standard Boilerplate?
 
