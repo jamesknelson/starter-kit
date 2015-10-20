@@ -19,13 +19,17 @@ export function updateChanges(id, data) {
   ]
 }
 
+export function clearChanges(id) {
+  return {
+    type: T.DOCUMENT_VIEW.CLEAR,
+    id,
+  }
+}
+
 export function cancelChanges(id) {
   return [
-    {
-      type: T.DOCUMENT_VIEW.CLEAR,
-      id,
-    },
-    navigation.start('documentList')
+    clearChanges(id),
+    navigation.start('documentList'),
   ]
 }
 
@@ -42,13 +46,13 @@ export function submitChanges(id, data) {
   else {
     const newId = id == 'new' ? uuid() : id
     return [
-      cancelChanges(id),
+      navigation.start('documentEdit', {id: newId}),
+      clearChanges(id),
       {
         type: T.DOCUMENT_DATA.UPDATE,
         id: newId,
         data,
       },
-      navigation.start('documentEdit', {id: newId}),
     ]
   }
 }

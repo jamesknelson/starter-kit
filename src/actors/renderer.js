@@ -10,6 +10,9 @@ const APP_NODE = document.getElementById('react-app')
 export default function renderer(state, dispatch) {
   // Don't re-render if we're in the process of navigating to a new page
   if (!state.navigation.transitioning) {
+    console.log(state.view.document.unsavedChanges)
+    console.log(state.navigation)
+
     ReactDOM.render(
       <ApplicationContainer state={state} dispatch={dispatch} />,
       APP_NODE
