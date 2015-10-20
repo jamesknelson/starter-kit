@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import * as actions from '../actions/documentView'
 import compose from '../utils/compose'
+import partial from '../utils/partial'
 import DocumentForm from '../components/DocumentForm'
 
 
@@ -14,11 +15,11 @@ export default function DocumentContainer({state, dispatch, id}) {
   const props = {
     data, 
     errors,
-    onUpdate: compose(dispatch, actions.updateChanges.bind(null, id)),
-    onCancel: compose(dispatch, actions.cancelChanges.bind(null, id)),
+    onUpdate: compose(dispatch, partial(actions.updateChanges, id)),
+    onCancel: compose(dispatch, partial(actions.cancelChanges, id)),
     onSubmit:
       viewData && !errors
-      ? compose(dispatch, actions.submitChanges.bind(null, id, data))
+      ? compose(dispatch, partial(actions.submitChanges, id, data))
       : null,
   }
 
