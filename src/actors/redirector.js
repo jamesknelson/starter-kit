@@ -14,8 +14,7 @@ export default function redirector(state, dispatch) {
     dispatch(navigation.start(name, options))
   }
   else if (name == 'root') {
-    // If we've hit the root location, redirect the user to a random
-    // namespace
+    // If we've hit the root location, redirect the user to the main page
     dispatch(navigation.start('documentList'))
   }
 }

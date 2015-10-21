@@ -6,8 +6,8 @@ import ROUTES from '../constants/ROUTES'
 // without rendering any other changes first
 export function start(name, options) {
   return dispatch => {
-    var currentURI = window.location.hash.substr(1)
-    var newURI = ROUTES.generate(name, options)
+    const currentURI = window.location.hash.substr(1)
+    const newURI = ROUTES.generate(name, options)
 
     if (currentURI != newURI) {
       dispatch({

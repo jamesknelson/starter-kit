@@ -33,26 +33,28 @@ export function cancelChanges(id) {
   ]
 }
 
-export function submitChanges(id, data) {
-  const errors = documentValidator(data)
+export function submitChanges(id) {
+  return (dispatch, getState) => {
+    const { view } = getState()
+    const data = view.document.unsavedChanges[id]
+    const errors = documentValidator(data)
 
-  if (errors) {
-    return {
-      type: T.DOCUMENT_VIEW.SET_ERRORS,
-      id,
-      errors,
+    if (errors) {
+      dispatch({
+        type: T.DOCUMENT_VIEW.SET_ERRORS,
+        id,
+        errors,
+      })
     }
-  }
-  else {
-    const newId = id == 'new' ? uuid() : id
-    return [
-      navigation.start('documentEdit', {id: newId}),
-      clearChanges(id),
-      {
+    else {
+      const newId = id == 'new' ? uuid() : id
+      dispatch(navigation.start('documentEdit', {id: newId}))
+      dispatch(clearChanges(id))
+      dispatch({
         type: T.DOCUMENT_DATA.UPDATE,
         id: newId,
         data,
-      },
-    ]
+      })
+    }
   }
 }

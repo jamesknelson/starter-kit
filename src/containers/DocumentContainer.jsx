@@ -19,7 +19,7 @@ export default function DocumentContainer({state, dispatch, id}) {
     onCancel: compose(dispatch, partial(actions.cancelChanges, id)),
     onSubmit:
       viewData && !errors
-      ? compose(dispatch, partial(actions.submitChanges, id, data))
+      ? compose(dispatch, partial(actions.submitChanges, id))
       : null,
   }
 

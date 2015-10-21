@@ -45,6 +45,7 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "redux": "^3.0.2",
+    "redux-batched-subscribe": "^0.1.4",
     "redux-multi": "^0.1.9",
     "redux-thunk": "^1.0.0",
     "uniloc": "^0.2.0"
