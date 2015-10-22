@@ -2,7 +2,7 @@ import './DocumentList.less'
 
 import React, {PropTypes} from 'react'
 import * as actions from '../actions/documentListView'
-import setPropTypes from '../utils/setPropTypes'
+import { pacomoTransformer } from '../utils/pacomo'
 import Link from './Link'
 
 
@@ -10,40 +10,33 @@ function mapValue(fn) {
   return e => fn(e.target.value)
 }
 
-
-export default setPropTypes({
-  id: PropTypes.string,
-  query: PropTypes.string,
-  documents: PropTypes.array.isRequired,
-  onChangeQuery: PropTypes.func.isRequired,
-})(function DocumentList({
+const DocumentList = ({
   id: activeId,
   query,
   documents,
   onChangeQuery,
-}) {
-  return (
+}) =>
     <div>
-      <header className='app-DocumentList-header'>
+      <header className='header'>
         <input
-          className='app-DocumentList-query'
+          className='query'
           type="text"
           placeholder="Search..."
           value={query}
           onChange={mapValue(onChangeQuery)}
         />
       </header>
-      <ul className='app-DocumentList-list'>
+      <ul className='list'>
         {documents.map(([id, data]) =>
           <li
             key={id}
-            className={`
-              app-DocumentList-document-item
-              ${activeId == id ? 'app-DocumentList-document-item-active' : ''}
-            `}
+            className={{
+              'document-item': true,
+              'document-item-active': activeId == id,
+            }}
           >
             <Link
-              className='app-DocumentList-document-link'
+              className='document-link'
               name='documentEdit'
               options={{id}}
             >
@@ -52,13 +45,13 @@ export default setPropTypes({
           </li>
         )}
         <li 
-          className={`
-            app-DocumentList-add-item
-            ${activeId == 'new' ? 'app-DocumentList-add-item-active' : ''}
-          `}
+          className={{
+            'add-item': true,
+            'add-item-active': activeId == 'new',
+          }}
         >
           <Link
-            className='app-DocumentList-add-link'
+            className='add-link'
             name='documentEdit'
             options={{id: 'new'}}
           >
@@ -67,5 +60,12 @@ export default setPropTypes({
         </li>
       </ul>
     </div>
-  )
-})
+
+DocumentList.propTypes = {
+  id: PropTypes.string,
+  query: PropTypes.string,
+  documents: PropTypes.array.isRequired,
+  onChangeQuery: PropTypes.func.isRequired,
+}
+
+export default pacomoTransformer(DocumentList)

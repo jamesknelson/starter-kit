@@ -2,7 +2,7 @@ import './DocumentForm.less'
 
 import React, {PropTypes} from 'react'
 import * as actions from '../actions/documentView'
-import setPropTypes from '../utils/setPropTypes'
+import { pacomoTransformer } from '../utils/pacomo'
 
 
 function updater(original, prop, fn) {
@@ -16,36 +16,25 @@ function preventDefault(fn) {
   }
 }
 
+const errorMap = (error, i) => <li className='error' key={i}>{error}</li>
 
-export default setPropTypes({
-  data: PropTypes.object.isRequired,
-  errors: PropTypes.object,
-  onUpdate: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func,
-  onCancel: PropTypes.func.isRequired,
-})(function DocumentForm({
+const DocumentForm = ({
   data,
   errors,
   onUpdate,
   onSubmit,
   onCancel,
-}) {
-  const errorList = errors && Object.values(errors).map(error =>
-    <li className='app-DocumentForm-error'>{error}</li>
-  )
-
-  return (
+}) =>
     <form
       onSubmit={preventDefault(onSubmit)}
-      className='app-DocumentForm'
       noValidate={true}
     >
-      <ul className='app-DocumentForm-errors'>
-        {errorList}
+      <ul className='errors'>
+        {errors && Object.values(errors).map(errorMap)}
       </ul>
       <input
         type='text'
-        className='app-DocumentForm-title'
+        className='title'
         placeholder='Title'
         onChange={updater(data, 'title', onUpdate)}
         value={data.title || ''}
@@ -53,26 +42,34 @@ export default setPropTypes({
       />
       <textarea
         type='text'
-        className='app-DocumentForm-content'
+        className='content'
         onChange={updater(data, 'content', onUpdate)}
         value={data.content || ''}
       />
-      <footer className='app-DocumentForm-buttons'>
+      <footer className='buttons'>
         <button
           type='button'
-          className='app-DocumentForm-cancel'
+          className='cancel'
           onClick={onCancel}
         >
           Cancel
         </button>
         <button
           type='submit'
-          className='app-DocumentForm-submit'
+          className='submit'
           disabled={!onSubmit}
         >
           Save
         </button>
       </footer>
     </form>
-  )
-})
+
+DocumentForm.propTypes = {
+  data: PropTypes.object.isRequired,
+  errors: PropTypes.object,
+  onUpdate: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
+  onCancel: PropTypes.func.isRequired,
+}
+
+export default pacomoTransformer(DocumentForm)
