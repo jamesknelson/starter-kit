@@ -7,7 +7,7 @@
 *Prerequisites: node.js and git*
 
 ```
-git clone git@github.com:unicorn-standard/boilerplate.git [your-repo-name]
+git clone https://github.com/unicorn-standard/boilerplate.git [your-repo-name]
 cd [your-repo-name]
 npm install
 npm install -g gulp
