@@ -1,6 +1,6 @@
 # Unicorn Standard Starter Kit
 
-**Unicorn Standard Starter Kit provides you with the code and conventions you need to get straight into building your React and Redux based app.**
+This starter kit provides you with the code and conventions you need to get straight into building your React/Redux based app.
 
 ## Happiness is six lines away
 
