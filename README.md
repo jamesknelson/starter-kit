@@ -7,8 +7,8 @@
 *Prerequisites: node.js and git*
 
 ```
-git clone https://github.com/unicorn-standard/starter-kit.git [your-repo-name]
-cd [your-repo-name]
+git clone https://github.com/unicorn-standard/starter-kit.git your-repo-name
+cd your-repo-name
 npm install
 npm install -g gulp
 npm start
