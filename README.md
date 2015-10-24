@@ -1,13 +1,13 @@
-# Unicorn Standard Boilerplate
+# Unicorn Standard Starter Kit
 
-**Unicorn Standard Boilerplate provides you with the code and conventions you need to get straight into building your React and Redux based app.**
+**Unicorn Standard Starter Kit provides you with the code and conventions you need to get straight into building your React and Redux based app.**
 
 ## Happiness is six lines away
 
 *Prerequisites: node.js and git*
 
 ```
-git clone https://github.com/unicorn-standard/boilerplate.git [your-repo-name]
+git clone https://github.com/unicorn-standard/starter-kit.git [your-repo-name]
 cd [your-repo-name]
 npm install
 npm install -g gulp
@@ -17,9 +17,9 @@ npm run open # (from a different console window, otherwise open localhost:3000)
 
 Presto, you've got a ready-to-customise application!
 
-![Unicorn Standard Boilerplate](http://unicornstandard.com/files/boilerplate.png?1)
+![Unicorn Standard Starter Kit](http://unicornstandard.com/files/boilerplate.png?1)
 
-## Why use Unicorn Standard Boilerplate?
+## Why use Unicorn Standard Starter Kit?
 
 - Your directory structure is sorted as soon as you `git clone`
 - ES6 compilation and automatic-reloading development server are configured for you with [webpack](https://webpack.github.io/) and [Babel](https://babeljs.io/)
