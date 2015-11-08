@@ -8,14 +8,14 @@ const OneOrTwoColumnLayout = ({
   left,
   right,
 }) => 
-    <div>
-      <div className={{'left': true, 'left-open': left}}>
-        {left}
-      </div>
-      <div className={{'right': true, 'right-open': right}}>
-        {right}
-      </div>
+  <div>
+    <div className={{'left': true, 'left-open': left}}>
+      {left}
     </div>
+    <div className={{'right': true, 'right-open': right}}>
+      {right}
+    </div>
+  </div>
 
 OneOrTwoColumnLayout.propTypes = {
   left: PropTypes.element,

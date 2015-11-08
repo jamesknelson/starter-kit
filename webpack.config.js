@@ -8,8 +8,7 @@ export default (DEBUG, PATH, PORT=3000) => ({
     `webpack-dev-server/client?http://localhost:${PORT}`,
   ] : []).concat([
     './src/main.less',
-    'babel-core/external-helpers',
-    'babel-core/polyfill',
+    'babel-polyfill',
     './src/main',
   ]),
 
@@ -34,15 +33,17 @@ export default (DEBUG, PATH, PORT=3000) => ({
         ],
         loader: "babel-loader",
         query: {
-          stage: 0,
-          externalHelpers: true,
-        }},
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react'],
+        }
+      },
 
       // Load styles
       { test: /\.less$/,
         loader: DEBUG
           ? "style!css!autoprefixer!less"
-          : ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader") },
+          : ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!less-loader")
+      },
 
       // Load images
       { test: /\.jpg/, loader: "url-loader?limit=10000&mimetype=image/jpg" },
