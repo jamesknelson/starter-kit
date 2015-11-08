@@ -1,14 +1,14 @@
-# Unicorn Standard Boilerplate
+# Unicorn Standard Starter Kit
 
-**Unicorn Standard Boilerplate provides you with the code and conventions you need to get straight into building your React and Redux based app.**
+This starter kit provides you with the code and conventions you need to get straight into building your React/Redux based app.
 
 ## Happiness is six lines away
 
 *Prerequisites: node.js and git*
 
 ```
-git clone https://github.com/unicorn-standard/boilerplate.git [your-repo-name]
-cd [your-repo-name]
+git clone https://github.com/unicorn-standard/starter-kit.git your-repo-name
+cd your-repo-name
 npm install
 npm install -g gulp
 npm start
@@ -17,9 +17,9 @@ npm run open # (from a different console window, otherwise open localhost:3000)
 
 Presto, you've got a ready-to-customise application!
 
-![Unicorn Standard Boilerplate](http://unicornstandard.com/files/boilerplate.png?1)
+![Unicorn Standard Starter Kit](http://unicornstandard.com/files/boilerplate.png?1)
 
-## Why use Unicorn Standard Boilerplate?
+## Why use Unicorn Standard Starter Kit?
 
 - Your directory structure is sorted as soon as you `git clone`
 - ES6 compilation and automatic-reloading development server are configured for you with [webpack](https://webpack.github.io/) and [Babel](https://babeljs.io/)
@@ -68,6 +68,8 @@ Presto, you've got a ready-to-customise application!
 Most of the above will be obvious from a quick read through `main.js` - if there is one thing which may strike you as "interesting", it'll be the block which handles actors.
 
 ### Actors
+
+*[Read the introduction to actors](http://jamesknelson.com/join-the-dark-side-of-the-flux-responding-to-actions-with-actors/)*
 
 Each time your store's state changes, a sequence of functions are called on the *current state* of your store. These functions are called **actors**.
 
