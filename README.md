@@ -10,7 +10,6 @@ This starter kit provides you with the code and conventions you need to get stra
 git clone https://github.com/unicorn-standard/starter-kit.git your-repo-name
 cd your-repo-name
 npm install
-npm install -g gulp
 npm start
 npm run open # (from a different console window, otherwise open localhost:3000)
 ```

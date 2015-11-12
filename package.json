@@ -8,7 +8,8 @@
   "main": "static",
   "scripts": {
     "start": "gulp serve",
-    "open": "gulp open"
+    "open": "gulp open",
+    "gulp": "gulp"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
