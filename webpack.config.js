@@ -82,8 +82,8 @@ export default (DEBUG, PATH, PORT=3000) => ({
 
     alias: {
       environment: DEBUG
-        ? path.resolve(__dirname, 'config', 'development.js')
-        : path.resolve(__dirname, 'config', 'production.js')
+        ? path.resolve(__dirname, 'config', 'environments', 'development.js')
+        : path.resolve(__dirname, 'config', 'environments', 'production.js')
     },
 
     // Allow to omit extensions when requiring these files
