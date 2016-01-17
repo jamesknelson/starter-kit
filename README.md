@@ -72,7 +72,7 @@ Most of the above will be obvious from a quick read through `main.js` - if there
 
 Each time your store's state changes, a sequence of functions are called on the *current state* of your store. These functions are called **actors**.
 
-There is one important exception to this rule: actors will not be called if `main.js` is currently in the midst of calling the sequence form a previous update. This allows earlier actors in a sequence to dispatch actions to the store, with later actors in the sequence receiving the *updated* state.
+There is one important exception to this rule: actors will not be called if `main.js` is currently in the midst of calling the sequence from a previous update. This allows earlier actors in a sequence to dispatch actions to the store, with later actors in the sequence receiving the *updated* state.
 
 The code which accomplishes this is very small:
 
